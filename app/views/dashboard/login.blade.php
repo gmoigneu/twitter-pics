@@ -23,6 +23,11 @@ Dashboard :: @parent
               </div>    
               <div class="control-group">
                 <!-- Username -->
+                @if (Input::get('error'))
+                <div class="alert alert-error">
+                  {{ Input::get('error') }}
+                </div>
+                @endif
                 <label class="control-label"  for="email">Email</label>
                 <div class="controls">
                   <input type="text" id="email" name="email" placeholder="" class="input-xlarge">

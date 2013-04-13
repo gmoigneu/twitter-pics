@@ -3,7 +3,7 @@
 class DashboardController extends BaseController {
 
     /**
-     * Display a listi of tweets
+     * Display a list of tweets
      *
      * @return Response
      */
@@ -30,7 +30,7 @@ class DashboardController extends BaseController {
         {
             return Redirect::route('dashboard');
         } else {
-            return Redirect::route('login', array('error'));
+            return Redirect::route('login', array('error' => 'Sorry, bad credentials'));
         }
     }
 
