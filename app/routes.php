@@ -11,7 +11,9 @@
 |
 */
 
-Route::get('/', function()
-{
-	return View::make('hello');
+Route::get('/', 'TwitterPicsController@index');
+
+/* Dashboard */
+Route::group(array('prefix' => 'dashboard'), function() {
+  Route::resource('/', 'DashboardController');
 });
