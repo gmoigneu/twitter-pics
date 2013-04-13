@@ -26,9 +26,11 @@ Dashboard :: @parent
         <th></th>
       </tr>
       <?php foreach ($tweets as $tweet): ?>
-        <tr @if ($tweet->enabled == 0)
-              class="error"
-              @endif
+        @if ($tweet->enabled == 0)
+              <tr class="error">
+        @else
+              <tr>
+        @endif
           <td>
             {{ $tweet->id }}
           </td>
