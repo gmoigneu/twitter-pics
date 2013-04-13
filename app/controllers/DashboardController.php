@@ -10,6 +10,7 @@ class DashboardController extends BaseController {
     public function index()
     {
         return View::make('dashboard/index', array(
+                'tweets' => Tweet::orderBy('id', 'desc')->paginate(9)
             )
         );
     }
@@ -32,6 +33,14 @@ class DashboardController extends BaseController {
         } else {
             return Redirect::route('login', array('error' => 'Sorry, bad credentials'));
         }
+    }
+
+    public function moderate($id)
+    {
+        $tweet = Tweet::find($id);
+        $tweet->enabled = 0;
+        $tweet->save();
+        return Redirect::route('dashboard');
     }
 
     public function logout()
