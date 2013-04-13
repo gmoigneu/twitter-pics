@@ -59,21 +59,21 @@
           </button>
           <a class="brand" href="#">Twitter Pics</a>
           <div class="nav-collapse collapse">
-          <?php if(Auth::user()) : ?>
+          @if (Auth::check())
             <div class="pull-right">
                   <ul class="nav pull-right">
-                      <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Welcome, <?php echo Auth::user()->email; ?> <b class="caret"></b></a>
+                      <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Welcome, {{ Auth::user()->email }} <b class="caret"></b></a>
                           <ul class="dropdown-menu">
                               <li><a href="/dashboard/logout"><i class="icon-off"></i> Logout</a></li>
                           </ul>
                       </li>
                   </ul>
                 </div>
-            <?php else : ?>
+            @else
             <p class="navbar-text pull-right">
               developed by <a href="http://nls.io" class="navbar-link">nls.io</a>
             </p>
-            <?php endif; ?>
+            @endif
           </div><!--/.nav-collapse -->
         </div>
       </div>
