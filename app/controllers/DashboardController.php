@@ -2,21 +2,8 @@
 
 class DashboardController extends BaseController {
 
-    /*
-    |--------------------------------------------------------------------------
-    | Default Home Controller
-    |--------------------------------------------------------------------------
-    |
-    | You may wish to use controllers instead of, or in addition to, Closure
-    | based routes. That's great! Here is an example controller method to
-    | get you started. To route to this controller, just add the route:
-    |
-    |   Route::get('/', 'HomeController@showWelcome');
-    |
-    */
-
     /**
-     * Display a listing of statistics
+     * Display a listi of tweets
      *
      * @return Response
      */
@@ -25,6 +12,32 @@ class DashboardController extends BaseController {
         return View::make('dashboard/index', array(
             )
         );
+    }
+
+    public function login()
+    {
+        return View::make('dashboard/login', array(
+            )
+        );
+    }
+
+    public function verify()
+    {
+        $email = Input::get('email');
+        $password = Input::get('password');
+
+        if (Auth::attempt(array('email' => $email, 'password' => $password), true))
+        {
+            return Redirect::route('dashboard');
+        } else {
+            return Redirect::route('login', array('error'));
+        }
+    }
+
+    public function logout()
+    {
+        Auth::logout();
+        return Redirect::route('dashboard');
     }
 
 }

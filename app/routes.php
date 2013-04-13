@@ -15,5 +15,8 @@ Route::get('/', 'TwitterPicsController@index');
 
 /* Dashboard */
 Route::group(array('prefix' => 'dashboard'), function() {
-  Route::resource('/', 'DashboardController');
+  Route::get('/', array('as' => 'dashboard', 'before' => 'auth', 'uses' => 'DashboardController@index'));
+  Route::get('/login', array('as' => 'login', 'uses' => 'DashboardController@login'));
+  Route::post('/verify', array('as' => 'verify', 'uses' => 'DashboardController@verify'));
+  Route::get('/logout', array('as' => 'logout', 'uses' => 'DashboardController@logout'));
 });
