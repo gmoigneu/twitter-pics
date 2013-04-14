@@ -20,4 +20,5 @@ Route::group(array('prefix' => 'dashboard'), function() {
   Route::post('/verify', array('as' => 'verify', 'uses' => 'DashboardController@verify'));
   Route::get('/logout', array('as' => 'logout', 'uses' => 'DashboardController@logout'));
   Route::get('/moderate/{id}', array('before' => 'auth', 'uses' => 'DashboardController@moderate'));
+  Route::get('/activate/{id}', array('before' => 'auth', 'uses' => 'DashboardController@activate'));
 });

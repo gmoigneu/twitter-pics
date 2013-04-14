@@ -12,9 +12,7 @@ Dashboard :: @parent
 </div>
 <div class="row-fluid">
 
-<div class="span12">
-<div class="container">
-    
+
         
    <table class="table table-striped">
       <tr>
@@ -49,21 +47,20 @@ Dashboard :: @parent
             {{ $tweet->text }}
           </td>
           <td>
+          @if ($tweet->enabled)
             <a class="btn btn-small btn-danger" href="/dashboard/moderate/{{ $tweet->id }}" type="button">Moderate</a>
+          @else
+            <a class="btn btn-small btn-success" href="/dashboard/activate/{{ $tweet->id }}" type="button">Reactivate</a>
+          @endif
           </tf>
         </tr>
         <?php endforeach; ?>
    </table>
 
 
-    <ul class="thumbnails">
-   
-    </ul>
 
-</div>
 
 <?php echo $tweets->links(); ?>
-</div>
 
 
 </div><!--/row-->

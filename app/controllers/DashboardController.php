@@ -43,6 +43,14 @@ class DashboardController extends BaseController {
         return Redirect::route('dashboard');
     }
 
+    public function activate($id)
+    {
+        $tweet = Tweet::find($id);
+        $tweet->enabled = 1;
+        $tweet->save();
+        return Redirect::route('dashboard');
+    }
+
     public function logout()
     {
         Auth::logout();
