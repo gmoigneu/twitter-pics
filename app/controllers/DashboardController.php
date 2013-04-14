@@ -10,7 +10,7 @@ class DashboardController extends BaseController {
     public function index()
     {
         return View::make('dashboard/index', array(
-                'tweets' => Tweet::orderBy('id', 'desc')->paginate(9)
+                'tweets' => Tweet::orderBy('id', 'desc')->paginate(50)
             )
         );
     }
