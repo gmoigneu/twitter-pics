@@ -1,13 +1,24 @@
-## Laravel 4.x
+## Twitter Pics
 
-### A Framework For Web Artisans
+### Display tweets and pictures for a specified hashtag
 
-[Official Documentation](http://four.laravel.com) (Under Active Development)
+1. Run composer install at your project root
 
-### Contributing To Laravel
+  ```php composer.phar install```
 
-**All issues and pull requests should be filed on the [laravel/framework](http://github.com/laravel/framework) repository.**
+2. Configure app.php
+3. Setup database.php
+4. Migrate database structure
 
-### License
+  ```php artisan migrate```
 
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
+5. Configure app/database/seed/DatabaseSeeder.php with an admin account
+6. Seed the database
+
+    ```php artisan db:seed```
+    
+7. Get tweets
+
+  ```php artisan twitter:scan```
+  
+8. Moderate tweets at http://<your-install>/dashboard
