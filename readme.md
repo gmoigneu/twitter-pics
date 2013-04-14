@@ -21,4 +21,4 @@
 
   ```php artisan twitter:scan```
   
-8. Moderate tweets at http://<your-install>/dashboard
+8. Moderate tweets at http://\<your-install\>/dashboard
