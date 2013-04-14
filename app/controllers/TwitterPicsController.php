@@ -10,7 +10,7 @@ class TwitterPicsController extends BaseController {
     public function index()
     {
         return View::make('twitterpics/index', array(
-               'tweets' => Tweet::orderBy('id', 'desc')->get()
+               'tweets' => Tweet::where('enabled', '=', 1)->orderBy('id', 'desc')->get()
             )
         );
     }
