@@ -59,16 +59,22 @@
 
 
         <div id="grid">
+        <?php $i = 0; ?>
         <?php foreach ($tweets as $tweet): ?>
-          
+          <?php $i++; ?>
+          <?php $case = ($i%10 == 0) ? '4' : '1'; ?>
           @if ($tweet->media_url)
-          <div class="item case1 img isotope-item">
+          <div class="item case<?php echo $case; ?> img isotope-item">
           @else
-          <div class="item case1 text isotope-item">
+          <div class="item case<?php echo $case; ?> text isotope-item">
           @endif
           <a>
               @if ($tweet->media_url)
-              <img src="{{ $tweet->media_url }}:thumb" alt="{{ $tweet->text }}">
+                @if($case == 4)
+                <img src="{{ $tweet->media_url }}:medium" alt="{{ $tweet->text }}">
+                @else 
+                <img src="{{ $tweet->media_url }}:thumb" alt="{{ $tweet->text }}">
+                @endif
               @else
               <p>{{ $tweet->text }}</p>
               @endif
@@ -90,7 +96,7 @@
       $('#grid').isotope({
             // options
             itemSelector : '.isotope-item',
-            layoutMode : 'fitRows'
+            layoutMode : 'masonry'
           });
     });
     
